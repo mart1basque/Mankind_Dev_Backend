@@ -30,6 +30,8 @@ app.post('/send-email', async (req, res) => {
     }
   });
 
+  const logoUrl = 'https://mankindcorp.fr/assets/logo-mail.png';
+
   // 📨 Mail reçu par toi
   const adminHtml = `
     <div style="font-family: Arial, sans-serif; background: #f9fafb; padding: 5vw;">
@@ -66,11 +68,11 @@ app.post('/send-email', async (req, res) => {
         body { background: #f9fafb; font-family: Arial, sans-serif; margin: 0; padding: 5vw; }
         .container { width: 100%; max-width: 600px; margin: auto; background: white; padding: 5vw; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); color: #1f2937; box-sizing: border-box; }
         .header { display: flex; align-items: center; margin-bottom: 20px; }
-        .logo { width: 50px; margin-right: 12px; }
+        .logo { width: 50px; margin-right: 12px; border-radius: 8px; }
         h1 { font-size: 22px; margin: 0; color: #111827; }
         p { margin: 10px 0; line-height: 1.6; }
         .footer { border-top: 1px solid #e5e7eb; margin-top: 25px; padding-top: 15px; font-size: 14px; color: #6b7280; text-align: center; }
-        .brand { color:rgb(76, 93, 178); text-decoration: none; font-weight: bold; }
+        .brand { color: rgb(76, 93, 178); text-decoration: none; font-weight: bold; }
         @media (max-width: 480px) {
           .logo { width: 40px; }
           h1 { font-size: 20px; }
@@ -81,7 +83,9 @@ app.post('/send-email', async (req, res) => {
     <body>
       <div class="container">
         <div class="header">
-          <img class="logo" src="https://mankindcorp.fr/wp-content/uploads/2024/09/logo-mankindcorp-mini.png" alt="Mankind Dev">
+          <a href="https://mankindcorp.fr">
+            <img class="logo" src="${logoUrl}" alt="Mankind Dev" />
+          </a>
           <h1>Mankind Dev</h1>
         </div>
 
@@ -121,7 +125,7 @@ app.post('/send-email', async (req, res) => {
   await transporter.sendMail({
     from: process.env.SMTP_USER,
     to: email,
-    subject: '📬 Confirmation : réception de votre demande de solution web',
+    subject: '📬 Confirmation : réception de votre demande de site web',
     replyTo: 'martinbasque.comptes@yahoo.com',
     html: confirmationHtml
   });
