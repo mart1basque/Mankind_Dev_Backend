@@ -70,7 +70,7 @@ app.post('/send-email', async (req, res) => {
         h1 { font-size: 22px; margin: 0; color: #111827; }
         p { margin: 10px 0; line-height: 1.6; }
         .footer { border-top: 1px solid #e5e7eb; margin-top: 25px; padding-top: 15px; font-size: 14px; color: #6b7280; text-align: center; }
-        .brand { color: #fbbc04; text-decoration: none; font-weight: bold; }
+        .brand { color:rgb(76, 93, 178); text-decoration: none; font-weight: bold; }
         @media (max-width: 480px) {
           .logo { width: 40px; }
           h1 { font-size: 20px; }
